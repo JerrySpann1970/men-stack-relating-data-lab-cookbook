@@ -1,0 +1,39 @@
+<!-- views/applications/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a New Product</title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Food Item</h1>
+    <form action="/users/<%= user._id %>/foods" method="POST">
+        <label for="foodItem">Food Item:</label>
+        <input type="text" name="foodItem" id="foodItem" />
+      
+        <label for="packageSize">Package Size:</label>
+        <input type="text" name="packageSize" id="packageSize" />
+      
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes"></textarea>
+      
+        <label for="purchaseLink">Purchase Link:</label>
+        <input type="text" name="purchaseLink" id="purchaseLink" />
+      
+        <label for="storageMethod">Storage Method:</label>
+        <select id="storageMethod" name="storageMethod">
+          <option value="pantry">Pantry</option>
+          <option value="refrigerate">Refrigerate</option>
+          <option value="freeze">Freeze</option>
+          <option value="garagePantry">Garage Pantry</option>
+        </select>
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+
+</html>

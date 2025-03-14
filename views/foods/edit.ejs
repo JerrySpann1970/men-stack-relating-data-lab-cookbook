@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editing <%= food.foodItem %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit <%= food.packageSize %> of <%= food.foodItem %></h1>
+  <form
+  action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT"
+  method="POST"
+  >
+    <label for="foodItem">Food Item:</label>
+    <input
+      type="text"
+      name="foodItem"
+      id="foodItem"
+      value="<%= food.foodItem %>"
+    >
+    <label for="packageSize">Package Size:</label>
+    <input type="text" name="packageSize" id="packageSize" value="<%= food.packageSize %>">
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"><%= food.notes %></textarea>
+    <label for="purchaseLink">Buy Again:</label>
+    <input
+      type="text"
+      name="purchaseLink"
+      id="purchaseLink"
+      value="<%= food.purchaseLink %>"
+    >
+    <label for="storageMethod">Storage Method:</label>
+    <select id="storageMethod" name="storageMethod">
+      <option
+        value="pantry"
+        <%= food.storageMethod === "pantry" ? "selected" : "" %>
+      >
+        Pantry
+      </option>
+
+      <option
+        value="refrigerate"
+        <%= food.storageMethod === "refrigerate" ? "selected" : "" %>
+      >
+        Refrigerate
+      </option>
+
+      <option
+        value="freeze"
+        <%= food.storageMethod === "freeze" ? "selected" : "" %>
+      >
+        Freeze
+      </option>
+
+      <option
+        value="garagePantry"
+        <%= food.storageMethod === "garagePantry" ? "selected" : "" %>
+      >
+        garagePantry
+      </option>
+      
+    </select>
+    <button type="submit">Update Food Pantry</button>
+  </form>
+</body>
+</html>

@@ -4,8 +4,22 @@ const foodSchema = new mongoose.Schema({
   foodItem: {
     type: String,
     required: true,
-  }
-})
+  },
+  packageSize: {
+    type: String,
+    required: true,
+  },
+  notes: {
+    type: String,  
+  },
+  purchaseLink: {
+    type: String,
+  },
+  storageMethod: {
+    type: String,
+    enum: ['pantry', 'refrigerate', 'freeze', 'garagePantry'],
+  }, 
+});
 
 const userSchema = mongoose.Schema({
   username: {
@@ -16,7 +30,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  pantry: [foodSchema],
+  foods: [foodSchema],
 });
 
 const User = mongoose.model('User', userSchema);

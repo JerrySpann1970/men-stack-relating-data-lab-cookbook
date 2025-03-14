@@ -10,6 +10,16 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to my Pantry</h1>
+    <a href="/users/<%= user._id %>/foods/new">Add Another Food Item</a>
+    <ul>
+        <% foods.forEach(food => { %>
+            <li>
+                <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+                <%= food.packageSize %> of <%= food.foodItem %>
+                </a>
+            </li>
+        <% }) %>
+    </ul> 
 </body>
 
 </html>
