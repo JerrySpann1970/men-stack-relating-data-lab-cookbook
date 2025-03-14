@@ -89,7 +89,7 @@ router.put('/:foodId', async (req, res) => {
         // Find the user from req.session
         const currentUser = await User.findById(req.session.user._id);
         // Find the current application from the id supplied by req.params
-        const food = currentUser.foods.id(req.foodId);
+        const food = currentUser.foods.id(req.params.foodId);
         // Use the Mongoose .set() method
         // this method updates the current application to reflect the new form
         // data on `req.body`
