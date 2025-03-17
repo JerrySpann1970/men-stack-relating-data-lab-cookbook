@@ -9,20 +9,20 @@ body {
     background-color: #9ac2ef;
 }
 
-/* public/stylesheets/style.css */
-
 .index-body {
-    background-image: url('https://rochester.edu/college/wcsa/assets/images/pantry.jpg');
+    background-image: url('https://blog.bigbasket.com/wp-content/uploads/2023/04/South-Indian-main_584509564.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
     width: 100vw;
-    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px black;
+    color: rgb(255, 255, 255);
 }
 
 .main-header {
     font-weight: bold;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 5.6em;
     margin: -160px 20px 0 20px;
 }
@@ -77,4 +77,47 @@ body {
 
 .signin-link:hover {
     background-color: #ffffff;
+}
+
+.signin-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  color: #d7dff1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20em;
+  height: 50%;
+  background-color: #f6e7e7;
+  padding: 30px 40px 20px 40px;
+  border-radius: 20px;
+  color: #4b598e;
+  font-weight: bold;
+}
+
+input {
+  border: 1px solid rgb(182, 182, 182);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #ce4866;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  margin: 15px 0;
+  font-size: 1.1em;
 }

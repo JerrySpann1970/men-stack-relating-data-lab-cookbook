@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
     <title>
         <%= food.foodItem %>
     </title>
@@ -12,27 +12,39 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-        <img src="<%= food.purchaseLink %>" alt="Food Item">
-        <h1>
-            <%= food.packageSize %> of <%= food.foodItem %>
-        </h1>
-        <% if (food.notes) { %>
-            <p>Notes: <%= food.notes %></p>
-        <% } %>
+    <div class="show-body">
+      <div class="show-header">
+        <h1><%= food.packageSize %> at <%= food.foodItem %></h1>
+        <div class="show-sidebar">
+          <div class="show-actions">
+            <a
+              href="/users/<%= user._id %>/foods/<%= food._id %>/edit"
+            >
+              Edit Your Pantry
+            </a>
+            <form
+              action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit">Delete Grocery Item</button>
+            </form>
+          </div>
+          <p>Storage Method: <%= food.storageMethod %></p>
+        </div>
+      </div>
+      <div class="show-notes-container">
         <% if (food.purchaseLink) { %>
-        <a href="<%= food.purchaseLink %>">Purchase Again</a>
-    <% } %>
-
-    <p>Storage Method: <%= food.storageMethod %></p>
-
-    <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
-        Update Food Item
-    </a>
-
-    <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE"
-        method="POST">
-        <button type="submit">Item Used Delete</button>
-    </form>
-</body>
+        <a href="<%= food.purchaseLink %>" target="_blank"
+          >View job posting</a
+        >
+        <% } %> <% if (food.notes) { %>
+        <div class="show-notes">
+          <h2>Notes:</h2>
+          <p><%= food.notes %></p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
 
 </html>
